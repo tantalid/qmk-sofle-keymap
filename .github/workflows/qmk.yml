@@ -1,0 +1,16 @@
+steps:
+
+  - uses: actions/checkout@v1
+
+  - name: Build Firmware
+    uses: ./
+    with:
+      keymap-path: "keyboards/sofle/keymaps/tantalid"
+      keyboard: "sofle/rev1"
+      keymap: "tantalid"
+
+  - name: Upload a Firmware
+    uses: actions/upload-artifact@v3.1.2
+    with:
+      name: firmware
+      path: build
