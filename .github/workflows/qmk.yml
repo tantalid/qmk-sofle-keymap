@@ -14,11 +14,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: d3adb5/build-qmk-fw@v1
         with:
-          keyboard: sofle/rev1
+          keyboard: sofle
           keymap: tantalid
           local-keymap-path: keyboards/sofle/keymaps/tantalid
 
       - uses: actions/upload-artifact@v4
         with:
           name: built-images
-          path: qmk-firmware-to-be-flashed
+          path: qmk-output
