@@ -15,7 +15,8 @@ jobs:
       - uses: d3adb5/build-qmk-fw@v1
         with:
           keyboard: sofle/rev1
-          keymap: tantalid
+          keymap: default
+          local-keymap-path: keymaps/tantalid
 
       - uses: actions/upload-artifact@v4
         with:
