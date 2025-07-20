@@ -16,7 +16,7 @@ jobs:
         with:
           keyboard: sofle/rev1
           keymap: default
-          local-keymap-path: keymaps/tantalid
+          local-keymap-path: tantalid
 
       - uses: actions/upload-artifact@v4
         with:
