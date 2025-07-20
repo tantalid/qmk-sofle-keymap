@@ -1,26 +1,23 @@
-name: "QMK build"
+name: Build my QMK configuration
+
 on:
-  pull_request:
   push:
     branches:
-      - main
       - master
-      - 'releases/*'
+  pull_request: {}
 
 jobs:
-  test:
-    name: Build
+  build-qmk:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Build Firmware
-        uses: ./
+      - uses: actions/checkout@v4
+      - uses: d3adb5/build-qmk-fw@v1
         with:
-          keymap-path: "keyboards/sofle/keymaps/tantalid"
-          keyboard: "sofle/rev1"
-          keymap: "tantalid"
-      - name: Upload a Firmware
-        uses: actions/upload-artifact@v4
+          keyboard: sofle/rev1
+          keymap: tantalid
+
+      - uses: actions/upload-artifact@v4
         with:
-          name: firmware
-          path: build
+          name: built-images
+          path: qmk-firmware-to-be-flashed
